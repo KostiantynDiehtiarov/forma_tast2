@@ -1,6 +1,6 @@
 const str = "aaasssdddxxcddxcssaaaaaadddddwdwdwdxxxccaaaaaaaaaaa"
 
-const arrayOfLetters = ["a", "s", "d", "x", "w"];
+const arrayOfLetters = ["a", "s", "d", "w"];
 
 let arrayForCounting = [];
 
@@ -34,9 +34,11 @@ function findSubString(str) {
                         subString.length > resultString.length ? resultString = subString : null;
                         let indexOfChar = subString.lastIndexOf(str[i]);  
                         if(indexOfChar != -1) {
-                            for(let j = 0; j <= indexOfChar; ++j) {
-                                arrayForCounting[subString[j].toString()] = 0;
-                            }
+                            arrayOfLetters.forEach(function(l) {
+                                if((subString.lastIndexOf(l) <= indexOfChar) && (subString.lastIndexOf(l) != -1)) {
+                                    arrayForCounting[l] = 0;
+                                }
+                            })
                             subString = subString.slice(indexOfChar+1) + str[i];
                             arrayForCounting[str[i]]++;
                         }

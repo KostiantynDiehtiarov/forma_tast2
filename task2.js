@@ -35,7 +35,6 @@ function findSubString(str) {
                         let indexOfChar = subString.lastIndexOf(str[i]);  
                         if(indexOfChar != -1) {
                             for(let j = 0; j <= indexOfChar; ++j) {
-                                j += arrayForCounting[subString[j]] = 0;
                                 arrayForCounting[subString[j]] = 0;
                             }
 
